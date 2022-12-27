@@ -48,8 +48,24 @@ body {
 {
   position: absolute;
   top: 20%;
-  left: 20%;
+  left: 22%;
   
+}
+.MainPosition2
+{
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  
+}
+
+.project_icon {
+  width: 100px;
+  height:100px;
+  background-color: #a09e9e;
+  border-radius: 20%;
+  opacity: 50%;
+
 }
 .theme {
  

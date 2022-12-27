@@ -1,6 +1,7 @@
 import me from "./img/me.jpeg";
 import contactt from "./img/contact.png";
 import projectss from "./img/projects.png";
+import gitImage from "./img/git.png";
 import homee from "./img/home.png";
 import infoo from "./img/info.png";
 import { useState } from "react";
@@ -35,7 +36,7 @@ function NavButton({filterText}) {
   {home?<HomeContent/>:""}  
   {contact?"444444444444444444444444444444444444":""}  
   {info?<InfoContent/>:""}  
-  {projects?"33333333333333333333333333333333333333":""}  
+  {projects?<ProjectsContent/>:""}  
    </div>
   );
 }
@@ -110,7 +111,46 @@ function InfoContent({toggle,settoggle}){
 </div></div>
   );
 }
-function HomeContent(){
+function ProjectsContent({toggle,settoggle}){
+ 
+  return (
+    <div className="MainPosition2" id="main_projects">
+
+      
+    <div className="divsp">
+      <div>
+      <div>
+        
+        <a href="https://github.com/Gharam-Sar/Orchid-Web-Project.git" target="_blank" rel="noopener noreferrer"><img className="project_icon" src={gitImage}/> </a>
+        <br></br>
+
+        <name className="grayText intro" id="project_name">Orchid Store</name>
+        <br></br>
+
+      <desc> An online plant and Flower Shop, created using html,css,java script and php </desc>
+        
+       </div> 
+       <br></br>
+
+       <div>      <a href="https://github.com/Gharam-Sar/Acute-Graduation-Project.git" target="_blank" rel="noopener noreferrer"><img className="project_icon" src={gitImage}/> </a>
+        <br></br>
+        <name className="grayText intro " id="project_name2">Acute Application</name>
+        <br></br>
+
+        <desc> A mobile application to organize eating habits and water drinking,        <br></br>
+
+           created with Flutter and runs on a node js server, along with a html and css Admin page.
+            </desc>
+          
+        
+       </div> 
+      </div>
+  
+  
+  </div></div>
+  );
+}
+function HomeContent({toggle,settoggle}){
   return (
     <div className="MainPosition" id="main_home">
     <div className="divsp">
