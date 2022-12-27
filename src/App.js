@@ -3,6 +3,11 @@ import contactt from "./img/contact.png";
 import projectss from "./img/projects.png";
 import gitImage from "./img/git.png";
 import homee from "./img/home.png";
+import linkedin from "./img/linkedin.png";
+import mobile from "./img/mobile.png";
+import email from "./img/email.png";
+import discord from "./img/discord.png";
+
 import infoo from "./img/info.png";
 import { useState } from "react";
 import './App.css';
@@ -34,7 +39,7 @@ function NavButton({filterText}) {
   return (
    <div>
   {home?<HomeContent/>:""}  
-  {contact?"444444444444444444444444444444444444":""}  
+  {contact?<ContactContent/>:""}  
   {info?<InfoContent/>:""}  
   {projects?<ProjectsContent/>:""}  
    </div>
@@ -96,6 +101,50 @@ function Theme({toggle,settoggle}){
   </div>
   );
 }
+function ContactContent({toggle,settoggle}){
+  return (
+    <div className="MainPosition3" id="main_contact">
+    <br></br>
+        
+    <div className="divsp">
+      <div>
+      <div>
+    <abbr title="+972568191595"> <a href="tel:+972568191595" target="_blank"><img className="contact_icon" src={mobile}/>
+       </a> 
+     </abbr>  <br></br>
+          +972568191595 
+      </div>
+  <div>
+  <br></br>
+    <div>
+      <abbr title="sargharam@gmail.com"> <a href="mailto:sargharam@gmail.com" target="_blank" ><img className="contact_icon" src={email}/>
+         </a> 
+       </abbr>  <br></br>
+       sargharam@gmail.com 
+        </div>
+  </div>
+  </div>
+  <div>&emsp;&emsp;</div>
+  <div>
+    <div>
+  <abbr title="Gharam Sarsour#2158"> <a href="https://discordapp.com/users/Gharam Sarsour#2158" target="_blank"><img className="contact_icon" src={discord}/>
+     </a> 
+   </abbr>  <br></br>
+   Gharam Sarsour#2158
+    </div>
+  <div>
+  <br></br>
+  <div>
+    <abbr title="Gharam Sarsour"> <a href="https://www.linkedin.com/in/gharam-sarsour-b40b5222a/" target="_blank" ><img className="contact_icon" src={linkedin}/>
+       </a> 
+     </abbr>  <br></br>
+     Gharam Sarsour 
+      </div>
+  </div>
+  </div>
+  </div></div>
+  );
+}
 function InfoContent({toggle,settoggle}){
   return (
     <div className="MainPosition" id="main_info">
@@ -126,9 +175,7 @@ function ProjectsContent({toggle,settoggle}){
 
         <name className="grayText intro" id="project_name">Orchid Store</name>
         <br></br>
-
-      <desc> An online plant and Flower Shop, created using html,css,java script and php </desc>
-        
+      <description> An online plant and Flower Shop, created using html,css,java script and php </description>    
        </div> 
        <br></br>
 
@@ -137,10 +184,10 @@ function ProjectsContent({toggle,settoggle}){
         <name className="grayText intro " id="project_name2">Acute Application</name>
         <br></br>
 
-        <desc> A mobile application to organize eating habits and water drinking,        <br></br>
+        <description> A mobile application to organize eating habits and water drinking,        <br></br>
 
            created with Flutter and runs on a node js server, along with a html and css Admin page.
-            </desc>
+            </description>
           
         
        </div> 

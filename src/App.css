@@ -57,8 +57,22 @@ body {
   top: 15%;
   left: 15%;
   
+}.MainPosition3
+{
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  
 }
+.contact_icon {
+  width: 100px;
+  height:100px;
+  
+  background-color: #a09e9e;
+  border-radius: 20%;
+  opacity: 50%;
 
+}
 .project_icon {
   width: 100px;
   height:100px;
