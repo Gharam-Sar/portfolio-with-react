@@ -7,7 +7,6 @@ import linkedin from "./img/linkedin.png";
 import mobile from "./img/mobile.png";
 import email from "./img/email.png";
 import discord from "./img/discord.png";
-
 import infoo from "./img/info.png";
 import { useState } from "react";
 import './App.css';
@@ -17,7 +16,7 @@ let contact=false;
 let projects=false;
 
 
-function NavButton({filterText}) {
+function Content({filterText,toggle}) {
   if(filterText==1){  home=true;
     info=false;
     contact=false;
@@ -38,10 +37,10 @@ function NavButton({filterText}) {
   }
   return (
    <div>
-  {home?<HomeContent/>:""}  
-  {contact?<ContactContent/>:""}  
-  {info?<InfoContent/>:""}  
-  {projects?<ProjectsContent/>:""}  
+  {home?<HomeContent toggle={toggle}/>:""}  
+  {contact?<ContactContent toggle={toggle}/>:""}  
+  {info?<InfoContent toggle={toggle}/>:""}  
+  {projects?<ProjectsContent toggle={toggle}/>:""}  
    </div>
   );
 }
@@ -91,14 +90,17 @@ function SideNav({filterText,setFilterText}) {
 }
 function Theme({toggle,settoggle}){
   return (
-    <div className = "theme">
-    <abbr title="Dark or Light Theme">
- <input  type="checkbox" id="switch" /><label  onChange={() => {
-     console.log(toggle);
-                settoggle(!toggle);
-                console.log(toggle);
-      }} ></label></abbr>
-  </div>
+    <div className="theme">
+  <input  type="checkbox" className="checkbox toggle-switch-checkbox " name="toggleSwitch" id="toggleSwitch" onClick={() => {
+         console.log(toggle);
+         settoggle(!toggle);
+         console.log(toggle);
+
+          }}/>
+  <label className="toggle-switch-label" for="toggleSwitch">
+   
+  </label>
+</div>
   );
 }
 function ContactContent({toggle,settoggle}){
@@ -150,7 +152,7 @@ function InfoContent({toggle,settoggle}){
     <div className="MainPosition" id="main_info">
       <br></br><br></br><br></br>
         <div className="divsp">
-          <div id="info_lines"> My name is <strong className="grayText"> &nbsp;Gharam Sarsour </strong>, Im 22 years old, 
+          <div id="info_lines"> My name is <strong className={toggle?"whiteText":"grayText"}> &nbsp;Gharam Sarsour </strong>, Im 22 years old, 
           I'm a frontend developer,<br></br>  currently training at foothill technology solution,
           I have worked<br></br> on differant types of projects, I included the most important ones in <br></br> my projects section of this Portfolio. 
         </div>
@@ -173,7 +175,7 @@ function ProjectsContent({toggle,settoggle}){
         <a href="https://github.com/Gharam-Sar/Orchid-Web-Project.git" target="_blank" rel="noopener noreferrer"><img className="project_icon" src={gitImage}/> </a>
         <br></br>
 
-        <name className="grayText intro" id="project_name">Orchid Store</name>
+        <name  className={toggle?"projectNameWhite":"projectNameGray"} id="project_name">Orchid Store</name>
         <br></br>
       <description> An online plant and Flower Shop, created using html,css,java script and php </description>    
        </div> 
@@ -181,7 +183,7 @@ function ProjectsContent({toggle,settoggle}){
 
        <div>      <a href="https://github.com/Gharam-Sar/Acute-Graduation-Project.git" target="_blank" rel="noopener noreferrer"><img className="project_icon" src={gitImage}/> </a>
         <br></br>
-        <name className="grayText intro " id="project_name2">Acute Application</name>
+        <name  className={toggle?"projectNameWhite":"projectNameGray"}  id="project_name2">Acute Application</name>
         <br></br>
 
         <description> A mobile application to organize eating habits and water drinking,        <br></br>
@@ -203,12 +205,12 @@ function HomeContent({toggle,settoggle}){
     <div className="divsp">
      <div> 
       <p className="intro">
-HI,I'm <span className="grayText" id="myname"><strong>Gharam Sarsour &nbsp;</strong></span>
+HI,I'm <span className={toggle?"whiteText":"grayText"} id="myname"><strong>Gharam Sarsour &nbsp;</strong></span>
 <br></br>
 
 <span className="intro2">
 &emsp;&emsp;&emsp;&emsp;&emsp;
-and this is <span className="grayText" id="myname2"><strong>My Portfolio </strong></span></span>
+and this is <span className={toggle?"whiteText":"grayText"} id="myname2"><strong>My Portfolio </strong></span></span>
 </p>
 </div> 
  
@@ -220,25 +222,23 @@ and this is <span className="grayText" id="myname2"><strong>My Portfolio </stron
 function App() {
   const [filterText, setFilterText] = useState(1);
   const [toggle, settoggle] = useState(false);
+//   const body= window.document.getElementsByTagName("body");
+//  body.style.backgroundColor='#e9e9e9';
 
   return (
     <div className="App">
-      <header className="App-header">
-     
-      </header>
+       <style>{toggle?'body { background-color: #7a7a7a; }':'body { background-color: #e9e9e9; }'}</style>
       <div >
       <div className="page_container">
 <div>
   <SideNav filterText={filterText} setFilterText={setFilterText}/>
 </div>
-
-
       <div  id="body">
-{/* <Theme toggle={toggle} settoggle={settoggle}/> */}
-     
+<Theme toggle={toggle} settoggle={settoggle}/>
+    
   </div>
 <div>
- <NavButton filterText={filterText}/>
+ <Content filterText={filterText} toggle={toggle}/>
 </div>
 
 </div>
