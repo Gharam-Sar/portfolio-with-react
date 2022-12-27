@@ -34,7 +34,7 @@ function NavButton({filterText}) {
    <div>
   {home?<HomeContent/>:""}  
   {contact?"444444444444444444444444444444444444":""}  
-  {info?"2222222222222222222222222222222222222222222":""}  
+  {info?<InfoContent/>:""}  
   {projects?"33333333333333333333333333333333333333":""}  
    </div>
   );
@@ -95,18 +95,33 @@ function Theme({toggle,settoggle}){
   </div>
   );
 }
+function InfoContent({toggle,settoggle}){
+  return (
+    <div className="MainPosition" id="main_info">
+      <br></br><br></br><br></br>
+        <div className="divsp">
+          <div id="info_lines"> My name is <strong className="grayText"> &nbsp;Gharam Sarsour </strong>, Im 22 years old, 
+          I'm a frontend developer,<br></br>  currently training at foothill technology solution,
+          I have worked<br></br> on differant types of projects, I included the most important ones in <br></br> my projects section of this Portfolio. 
+        </div>
+         
+
+
+</div></div>
+  );
+}
 function HomeContent(){
   return (
-    <div className="mm" id="main_home">
+    <div className="MainPosition" id="main_home">
     <div className="divsp">
      <div> 
       <p className="intro">
-HI,I'm <span className="myname" id="myname"><strong>Gharam Sarsour &nbsp;</strong></span>
+HI,I'm <span className="grayText" id="myname"><strong>Gharam Sarsour &nbsp;</strong></span>
 <br></br>
 
 <span className="intro2">
-&emsp;&emsp;
-and this is <span className="myname2" id="myname2"><strong>My Portfolio&emsp;&emsp;</strong></span></span>
+&emsp;&emsp;&emsp;&emsp;&emsp;
+and this is <span className="grayText" id="myname2"><strong>My Portfolio </strong></span></span>
 </p>
 </div> 
  
